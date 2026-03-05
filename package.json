@@ -9,6 +9,7 @@
     "shape": "npx codeshape --check",
     "typecheck": "npx codeshape --typecheck-only"
   },
+  "homepage": "https://axtk.github.io/skymap",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/axtk/skymap.git"
