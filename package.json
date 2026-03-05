@@ -1,0 +1,17 @@
+{
+  "name": "skymap",
+  "version": "0.1.0",
+  "description": "Night sky map with the stars observable with the naked eye",
+  "type": "module",
+  "main": "./index.html",
+  "scripts": {
+    "build": "npx esbuild src/index.ts --outdir=assets/dist --platform=browser --bundle --minify",
+    "shape": "npx codeshape --check",
+    "typecheck": "npx codeshape --typecheck-only"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axtk/skymap.git"
+  },
+  "author": "axtk"
+}

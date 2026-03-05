@@ -1,0 +1,14 @@
+{
+  "include": ["./src", "./index.html", "./assets/stats.d.ts"],
+  "compilerOptions": {
+    "noEmit": true,
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "target": "esnext",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "allowImportingTsExtensions": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  }
+}
