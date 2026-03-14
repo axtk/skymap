@@ -132,7 +132,8 @@ export function setDragPan(
   }
 
   function handleWheel(event: Event) {
-    if (!(event instanceof WheelEvent) || shouldIgnore(event.target, ignore)) return;
+    if (!(event instanceof WheelEvent) || shouldIgnore(event.target, ignore))
+      return;
 
     event.preventDefault();
 
