@@ -7,6 +7,6 @@ export type Context = {
   constellations: Constellation[];
   hintLines: [number, number][][];
   tilt: [number, number];
-  mode: "dark" | "light" | "fantasy";
+  mode: "dark" | "light" | "vintage" | "fantasy";
   moving?: boolean;
 };

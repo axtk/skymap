@@ -31,9 +31,13 @@ export function renderConstellationLabels(ctx: Context) {
       fragment.appendChild(element);
     }
 
+    let { name } = item;
+
+    if (ctx.mode === "vintage") name = name.replaceAll("u", "v");
+
     element.setAttribute("x", pos[0].toFixed(3));
     element.setAttribute("y", pos[1].toFixed(3));
-    element.textContent = item.name;
+    element.textContent = name;
   }
 
   if (fragment) container.appendChild(fragment);
