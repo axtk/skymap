@@ -6,8 +6,8 @@
   "main": "./index.html",
   "scripts": {
     "build": "npx esbuild src/index.ts --outdir=assets/dist --platform=browser --bundle --minify",
-    "shape": "npx codeshape --check",
-    "typecheck": "npx codeshape --typecheck-only"
+    "shape": "npx codeshape check",
+    "typecheck": "npx codeshape typecheck"
   },
   "homepage": "https://axtk.github.io/skymap",
   "repository": {
