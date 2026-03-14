@@ -86,14 +86,19 @@ html[data-mode="vintage"] #screen .star-labels {
   fill-opacity: 0.12;
 }
 html[data-mode="vintage"] #screen .constellation-labels {
-  font-size: 1.15em;
+  font-size: 1.5em;
   font-family: Georgia, serif;
   font-weight: normal;
   font-style: normal;
   font-variant: small-caps;
   text-transform: none;
   letter-spacing: 0.15em;
-  fill-opacity: 0.2;
+  fill-opacity: 0.15;
+}
+#screen .constellation-labels text {
+  --x: 0px;
+  --y: 0px;
+  transform: translate(var(--x), var(--y));
 }
 #screen .hint-lines {
   stroke: currentColor;
