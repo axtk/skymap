@@ -22,7 +22,7 @@ export function getDimensions({ element }: Context): Dimensions {
   dimensions = {
     width,
     height,
-    r: 0.65 * Math.sqrt(width * width + height * height),
+    r: Math.max(0.52 * Math.hypot(width, height), 500),
     x0: width / 2,
     y0: height / 2,
   };
