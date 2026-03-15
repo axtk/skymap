@@ -18,7 +18,8 @@ const defaultTilt: [number, number] = [
 async function init() {
   let element = document.querySelector<SVGElement>("#screen svg")!;
   let data = await fetchData();
-  let mode = (document.documentElement.dataset.mode as Context["mode"]) ?? "dark";
+  let mode =
+    (document.documentElement.dataset.mode as Context["mode"]) ?? "dark";
 
   let ctx: Context = {
     ...data,

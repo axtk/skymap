@@ -18,9 +18,10 @@ function getContent(ctx: Context, data: Constellation) {
     for (let line of lines) {
       let s = escapeHTML(line);
 
-      content += content === ""
-        ? `<tspan x="0">${s}</tspan>`
-        : `<tspan x="0" dy="1.1em">${s}</tspan>`;
+      content +=
+        content === ""
+          ? `<tspan x="0">${s}</tspan>`
+          : `<tspan x="0" dy="1.1em">${s}</tspan>`;
     }
 
     return content;

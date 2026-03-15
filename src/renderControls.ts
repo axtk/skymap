@@ -24,7 +24,7 @@ export function renderControls(ctx: Context) {
       if (ctx.mode !== nextMode) {
         document.documentElement.dataset.mode = nextMode;
         ctx.mode = nextMode;
-  
+
         window.history.pushState({}, "", `?mode=${nextMode}`);
         setActiveMode();
         render(ctx);
