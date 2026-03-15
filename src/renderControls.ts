@@ -1,6 +1,14 @@
 import type { Context } from "./Context.ts";
 import { render } from "./render.ts";
 
+const defaultTitle = document.title;
+
+const titleMap: Partial<Record<Context["mode"], string>> = {
+  "light": `${defaultTitle} in a paper map style`,
+  "vintage": `${defaultTitle} in a vintage style`,
+  "fantasy": `${defaultTitle} in a fantasy style`,
+};
+
 function getMode(control: HTMLAnchorElement) {
   return new URL(control.href).searchParams.get("mode") as Context["mode"];
 }
@@ -11,6 +19,8 @@ export function renderControls(ctx: Context) {
   function setActiveMode() {
     for (let control of modeSwitch.querySelectorAll("a"))
       control.dataset.active = String(getMode(control) === ctx.mode);
+
+    document.title = titleMap[ctx.mode] ?? defaultTitle;
   }
 
   modeSwitch.addEventListener("click", (event) => {
@@ -25,7 +35,7 @@ export function renderControls(ctx: Context) {
         document.documentElement.dataset.mode = nextMode;
         ctx.mode = nextMode;
 
-        window.history.pushState({}, "", `?mode=${nextMode}`);
+        window.history.pushState({}, "", control.href);
         setActiveMode();
         render(ctx);
 
