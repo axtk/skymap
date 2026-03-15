@@ -27,13 +27,11 @@ export function getSelectionContent(stars: Star[]) {
 
   content.append(list);
 
-  // let closeButton = document.createElement('button');
+  // let closeButton = document.createElement("button");
 
-  // closeButton.textContent = '×';
-  // closeButton.setAttribute('aria-label', 'Close');
-  // closeButton.addEventListener('click', () => {
-  //     document.querySelector('#screenmenu')?.classList.add('hidden');
-  // });
+  // closeButton.textContent = "×";
+  // closeButton.setAttribute("aria-label", "Close");
+  // closeButton.addEventListener("click", () => hideMenu());
   // content.append(closeButton);
 
   return content;
