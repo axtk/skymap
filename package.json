@@ -5,7 +5,7 @@
   "type": "module",
   "main": "./index.html",
   "scripts": {
-    "build": "npx esbuild src/index.ts --outdir=assets/dist --platform=browser --bundle --minify",
+    "build": "npx esbuild src/index.ts --outdir=assets/dist --platform=browser --format=esm --bundle --minify",
     "shape": "npx codeshape check",
     "start": "npx auxsrv -b src/index.ts assets/dist --minify --watch",
     "typecheck": "npx codeshape typecheck"
