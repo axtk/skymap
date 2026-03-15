@@ -89,7 +89,7 @@ html[data-mode="vintage"] #screen .star-labels {
 }
 html[data-mode="vintage"] #screen .constellation-labels {
   font-size: 1.35em;
-  font-family: Georgia, serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", "URW Palladio L", P052, serif;
   font-weight: normal;
   font-style: normal;
   font-variant: small-caps;
