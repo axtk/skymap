@@ -1,7 +1,8 @@
 html {
-  --color: black;
+  --base-color: black;
   --background: white;
   --link-color: royalblue;
+  --color: var(--base-color);
 
   font: normal 80% / 1.2 sans-serif;
   color: var(--color);
@@ -10,7 +11,7 @@ html {
 }
 html[data-mode="dark"],
 html[data-mode="fantasy"] {
-  --color: white;
+  --base-color: white;
   --background: #0d0c15;
   --link-color: deepskyblue;
 }
@@ -31,7 +32,8 @@ a,
 a:hover,
 a:visited,
 a:active {
-  color: var(--link-color);
+  --color: var(--link-color);
+  color: var(--color);
 }
 #screen {
   flex: auto;
@@ -115,33 +117,27 @@ html[data-mode="vintage"] #screen .hint-lines {
 #screen .hidden {
   display: none;
 }
-#screen form {
+#screen .switch {
   display: flex;
   padding: 0;
   margin: 0;
   position: absolute;
   inset: 1em auto auto 1em;
 }
-#screen form label {
+#screen .switch a {
+  --color: color(from var(--base-color) srgb r g b / 0.85);
   display: inline-block;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-#screen form label input {
-  position: absolute;
-  left: -10rem;
-}
-#screen form label span {
-  display: inline-block;
-  color: color(from var(--color) srgb r g b / 0.85);
+  text-decoration: none;
   background: color(from var(--color) srgb r g b / 0.15);
   border: 0.05em solid color(from var(--color) srgb r g b / 0.3);
   padding: 0.35em 1.5em;
 }
-#screen form label input:checked + span {
-  color: color(from var(--link-color) srgb r g b / 0.95);
+#screen .switch a[data-active="true"] {
+  --color: color(from var(--link-color) srgb r g b / 0.95);
   background: color(from var(--link-color) srgb r g b / 0.25);
+}
+#screen .switch .sep {
+  display: none;
 }
 
 footer {

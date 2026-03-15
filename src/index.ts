@@ -4,7 +4,7 @@ import { hideMenu } from "./hideMenu.ts";
 import { initClicks } from "./initClicks.ts";
 import { initNavigation } from "./initNavigation.ts";
 import { render } from "./render.ts";
-import { renderForm } from "./renderForm.ts";
+import { renderControls } from "./renderControls.ts";
 import { setDimensions } from "./setDimensions.ts";
 import { state } from "./state.ts";
 
@@ -18,9 +18,7 @@ const defaultTilt: [number, number] = [
 async function init() {
   let element = document.querySelector<SVGElement>("#screen svg")!;
   let data = await fetchData();
-  let mode =
-    (document.documentElement.dataset.mode as Context["mode"]) ||
-    state.read<Context["mode"]>("mode");
+  let mode = (document.documentElement.dataset.mode as Context["mode"]) ?? "dark";
 
   let ctx: Context = {
     ...data,
@@ -45,7 +43,7 @@ async function init() {
   });
 
   setDimensions(ctx);
-  renderForm(ctx);
+  renderControls(ctx);
   render(ctx);
   initNavigation(ctx);
   initClicks(ctx);
