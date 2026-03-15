@@ -1,4 +1,4 @@
-const ns = "stars.";
+const ns = "skymap.";
 
 export const state = {
   read<T>(key: string) {
