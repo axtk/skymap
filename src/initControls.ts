@@ -9,18 +9,26 @@ const titleMap: Partial<Record<Context["mode"], string>> = {
   "fantasy": `${defaultTitle} in a fantasy style`,
 };
 
-function getMode(control: HTMLAnchorElement) {
-  return new URL(control.href).searchParams.get("mode") as Context["mode"];
+function getMode(url: string) {
+  return new URL(url).searchParams.get("mode") as Context["mode"];
 }
 
 export function initControls(ctx: Context) {
   let modeSwitch = document.querySelector("#screen .mode.switch")!;
 
-  function setActiveMode() {
+  function setActiveMode(mode: Context["mode"], skipRender = false) {
     for (let control of modeSwitch.querySelectorAll("a"))
-      control.dataset.active = String(getMode(control) === ctx.mode);
+      control.dataset.active = String(getMode(control.href) === mode);
 
-    document.title = titleMap[ctx.mode] ?? defaultTitle;
+    document.documentElement.dataset.mode = mode;
+    document.title = titleMap[mode] ?? defaultTitle;
+
+    if (!skipRender) {
+      ctx.mode = mode;
+      render(ctx);
+
+      window.sendEvent?.(["set mode", mode]);
+    }
   }
 
   modeSwitch.addEventListener("click", (event) => {
@@ -29,20 +37,18 @@ export function initControls(ctx: Context) {
     if (control && window.history) {
       event.preventDefault();
 
-      let nextMode = getMode(control);
+      let nextMode = getMode(control.href);
 
       if (ctx.mode !== nextMode) {
-        document.documentElement.dataset.mode = nextMode;
-        ctx.mode = nextMode;
-
         window.history.pushState({}, "", control.href);
-        setActiveMode();
-        render(ctx);
-
-        window.sendEvent?.(["set mode", nextMode]);
+        setActiveMode(nextMode);
       }
     }
   });
 
-  setActiveMode();
+  window.addEventListener("popstate", () => {
+    setActiveMode(getMode(window.location.href));
+  });
+
+  setActiveMode(ctx.mode, true);
 }
