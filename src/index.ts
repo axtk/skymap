@@ -2,9 +2,9 @@ import type { Context } from "./Context.ts";
 import { fetchData } from "./fetchData.ts";
 import { hideMenu } from "./hideMenu.ts";
 import { initClicks } from "./initClicks.ts";
+import { initControls } from "./initControls.ts";
 import { initNavigation } from "./initNavigation.ts";
 import { render } from "./render.ts";
-import { initControls } from "./initControls.ts";
 import { setDimensions } from "./setDimensions.ts";
 import { state } from "./state.ts";
 

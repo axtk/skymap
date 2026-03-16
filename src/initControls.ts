@@ -4,9 +4,9 @@ import { render } from "./render.ts";
 const defaultTitle = document.title;
 
 const titleMap: Partial<Record<Context["mode"], string>> = {
-  "light": `${defaultTitle} in a paper map style`,
-  "vintage": `${defaultTitle} in a vintage style`,
-  "fantasy": `${defaultTitle} in a fantasy style`,
+  light: `${defaultTitle} in a paper map style`,
+  vintage: `${defaultTitle} in a vintage style`,
+  fantasy: `${defaultTitle} in a fantasy style`,
 };
 
 function getMode(url: string) {
