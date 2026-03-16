@@ -1,5 +1,5 @@
 const dataRoot =
-  "https://raw.githubusercontent.com/axtk/axtk.github.io/refs/heads/main/apps/assets/stars/data";
+  "https://raw.githubusercontent.com/axtk/skymap/refs/heads/main/assets/data";
 
 export const urlMap = {
   stars: `${dataRoot}/stars_m6_bsc5.csv`,
