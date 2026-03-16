@@ -4,7 +4,7 @@ import { hideMenu } from "./hideMenu.ts";
 import { initClicks } from "./initClicks.ts";
 import { initNavigation } from "./initNavigation.ts";
 import { render } from "./render.ts";
-import { renderControls } from "./renderControls.ts";
+import { initControls } from "./initControls.ts";
 import { setDimensions } from "./setDimensions.ts";
 import { state } from "./state.ts";
 
@@ -44,7 +44,7 @@ async function init() {
   });
 
   setDimensions(ctx);
-  renderControls(ctx);
+  initControls(ctx);
   render(ctx);
   initNavigation(ctx);
   initClicks(ctx);

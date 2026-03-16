@@ -13,7 +13,7 @@ function getMode(control: HTMLAnchorElement) {
   return new URL(control.href).searchParams.get("mode") as Context["mode"];
 }
 
-export function renderControls(ctx: Context) {
+export function initControls(ctx: Context) {
   let modeSwitch = document.querySelector("#screen .mode.switch")!;
 
   function setActiveMode() {
